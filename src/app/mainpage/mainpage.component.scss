@@ -1,0 +1,15 @@
+.pagination-previous,
+.pagination-next {
+  background-color: #4CAF50; /* Yeşil arka plan */
+  color: white; /* Beyaz yazı rengi */
+}
+
+.pagination-page,
+.pagination-current {
+  background-color: #f4f4f4; /* Gri arka plan */
+  color: #333; /* Koyu gri yazı rengi */
+}
+
+.pagination-disabled {
+  opacity: 0.5; /* Devre dışı bırakılmış düğmeleri soluk hale getir */
+}
