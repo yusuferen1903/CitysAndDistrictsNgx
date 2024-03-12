@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NgxData:build:production"
+              "buildTarget": "NgxData:build:production"
             },
             "development": {
-              "browserTarget": "NgxData:build:development"
+              "buildTarget": "NgxData:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "NgxData:build"
+            "buildTarget": "NgxData:build"
           }
         },
         "test": {
