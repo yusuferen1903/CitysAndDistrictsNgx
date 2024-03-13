@@ -1,4 +1,10 @@
-<ngx-datatable
+<div>
+  <div style="justify-content: flex-end;
+  display: flex;
+  margin: 20px;">
+    <button (click)="saveAll()">HEPSİNİ KAYDET</button>
+  </div>
+  <ngx-datatable
   class="material"
   [rows]="combinedList"
   [columnMode]="'force'"
@@ -9,7 +15,14 @@
 >
   <ngx-datatable-column name="İl">
     <ng-template let-row="row" ngx-datatable-cell-template>
-      {{ row.il }}
+      <ng-container *ngIf="row.editing; else showIl">
+        <select [(ngModel)]="row.selectedIl" (change)="onIlChange(row)">
+          <option *ngFor="let il of ilList" [value]="il.id" [selected]="il.id === row.il_id">{{ il.name }}</option>
+        </select>
+      </ng-container>
+      <ng-template #showIl>
+        {{ row.il }}
+      </ng-template>
     </ng-template>
   </ngx-datatable-column>
 
@@ -22,7 +35,7 @@
         <input
           type="text"
           [value]="row.ilce"
-          (input)="row.ilce = $event.target"
+          (input)="updateDistrict($event, row)"
         />
       </ng-template>
     </ng-template>
@@ -37,12 +50,11 @@
         <input
           type="text"
           [value]="row.ilce_id"
-          (input)="row.ilce_id = $event.target"
+          (input)="updateDistrictId($event , row)"
         />
       </ng-template>
     </ng-template>
   </ngx-datatable-column>
-
 
   <ngx-datatable-column name="İşlemler">
     <ng-template let-row="row" ngx-datatable-cell-template>
@@ -51,3 +63,6 @@
     </ng-template>
   </ngx-datatable-column>
 </ngx-datatable>
+
+</div>
+
